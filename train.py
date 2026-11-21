@@ -13,7 +13,7 @@ mlflow.start_run()
 print("MLflow tracking to local './mlruns' directory.")
 
 # ---------------- 2) Load data ----------------
-DATA_PATH = "" #TODO: Add the csv file
+DATA_PATH = "data/reviews.csv"
 
 
 assert os.path.exists(DATA_PATH), "Missing data/reviews.csv. Please add the CSV."
@@ -50,7 +50,7 @@ mlflow.log_metric("accuracy", acc)
 print(f"Model Accuracy: {acc:.3f}")
 
 # ---------------- 6) Gate ----------------
-THRESH =  # TODO: Add the threshold, the goal is a minimum 60% accuracy
+THRESH = 0.60  # minimum 60% accuracy
 if acc < THRESH:
     print(f"Validation Failed: Accuracy is below the {THRESH} threshold.")
     mlflow.end_run(status="FAILED")
